@@ -1,0 +1,27 @@
+[package]
+name = "rdf-exam"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "A template for creating consistent looking exams."
+repository = "https://github.com/jomaway/typst-rdf-exam"
+keywords = ["exam", "assignments", "grading"]
+categories = ["office"]
+disciplines = ["education"]
+compiler = "0.14.0"
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "exam.typ"
+thumbnail = "thumbnail.png"
