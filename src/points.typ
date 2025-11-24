@@ -2,9 +2,10 @@
 
 #let get-total-points() = context grading.get_points().sum(default: 0)
 
-// Show a box with the total_points
+/// Show a box with the total points
 #let point-sum-box(
   /// The total points. If `auto` it will be auto generated.
+  /// -> int | auto
   total-points: auto
 ) = {
   box(stroke: 1pt, inset: 0.8em, radius: 3pt)[
@@ -21,7 +22,12 @@
 
 
 /// Show a table with point distribution
-#let point-table(assignment-names: auto) = {
+#let point-table(
+  /// A list of names for each assignment.
+  /// The default is just increasing numbers.
+  /// -> list | auto
+  assignment-names: auto
+) = {
   context {
     let points = grading.get_points()
 

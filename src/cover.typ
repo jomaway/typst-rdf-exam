@@ -8,26 +8,35 @@
   if type(field) == datetime { field.display("[day].[month].[year]") } else { field }
 }
 
+/// Creates a cover-page with the metadata set in the exam template.
+/// -> page
 #let cover-page(
   /// The logo to display on the cover page.
+  /// -> content
   logo: box(height: 2cm, image("assets/rdf.svg")),
 
   /// The main title of the exam.
+  /// -> string | auto
   title: auto,
 
   /// Optional subtitle for the exam.
+  /// -> string | auto
   subtitle: auto,
 
   /// The class name or code.
+  /// -> string | auto
   class: auto,
 
   /// The subject of the exam.
+  /// -> string | auto
   subject: auto,
 
   /// The date of the exam.
+  /// -> datetime | string | auto
   date: auto,
 
   /// The total amount of achivable points
+  /// -> int | auto
   total-points: auto,
 ) = {
   page(
@@ -96,27 +105,34 @@
   counter(page).update(1)
 }
 
-
+/// Creates a header block with the metadata set in the exam template.
 #let header-block(
   /// The logo to display on the cover page.
+  /// -> content
   logo: box(height: 2cm, image("assets/rdf.svg")),
 
   /// The main title of the exam.
+  /// -> string | auto
   title: auto,
 
   /// Optional subtitle for the exam.
+  /// -> string | auto
   subtitle: auto,
 
   /// The class name or code.
+  /// -> string | auto
   class: auto,
 
   /// The subject of the exam.
+  /// -> string | auto
   subject: auto,
 
   /// The date of the exam.
+  /// -> datetime | string | auto
   date: auto,
 
   /// The total amount of achivable points
+  /// -> int | auto
   total-points: auto,
 ) = {
   date = if type(date) == datetime { date.display("[day].[month].[year]") } else { date }

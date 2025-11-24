@@ -4,31 +4,40 @@
 
 /// Defines the layout and metadata for an exam.
 #let exam(
-  /// The exam title.
+  /// The exam and document title.
+  /// -> string | none
   title: "Leistungsnachweis",
 
   /// Optional subtitle for the exam.
+  /// -> string | content | none
   subtitle: none,
 
   /// Date of the exam.
+  /// -> string | datetime | content | none
   date: none,
 
   /// Class name or code.
+  /// -> string | none
   class: none,
 
   /// Subject of the exam.
+  /// -> string | none
   subject: none,
 
   /// Author(s) of the exam.
+  /// -> string
   authors: "RDF",
 
   /// Whether to include a cover page.
-  cover: true, // false | true
+  /// -> boolean
+  cover: true,
 
   /// Total points. If `auto` it get's auto generated. This is mostly what you want.
+  /// -> int | auto
   total-points: auto,
 
   /// The exam content body.
+  /// -> content
   body,
 ) = {
   // Set the document's basic properties.
@@ -80,13 +89,17 @@
 }
 
 
-
+/// A utility function to create an appendix.
+/// The page count is not included in the exam.
 #let appendix(
   /// The appendix title. If `auto`, uses "Anhang".
+  /// -> string | auto
   title: auto,
   /// Additional arguments for page setup.
+  /// -> arguments
   ..args,
   /// The appendix body content.
+  /// -> content
   body,
 ) = [
   #update-last-page-counter()

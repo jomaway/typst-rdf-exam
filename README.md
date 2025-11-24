@@ -2,7 +2,6 @@
 <div align="center">Version 0.1.0</div>
 
 This is a [typst](https://typst.app/home) template for creating consistent looking exams.
-The RDF logo can be replaced by your schools/institution logo.
 
 `rdf-exam` uses [`ttt-utils`](https://typst.app/universe/package/ttt-utils) under the hood. Please refer to the docs of `ttt-utils` about how to structure assignments and questions.
 
@@ -35,9 +34,10 @@ If you don't need a full cover page you can disable it. Instead you can use the 
   cover: false // Disable the default cover
 )
 
-// create a custom cover where you overwrite the logo
+// create a small header block
 #header-block()
 
+// Assignments and questions from here on.
 #assignment[
   Aufgabe
 
@@ -65,7 +65,7 @@ You can replace the RDF logo with your own logo by disabling the default cover a
   logo: stack(
     circle(fill: blue),
     rect(width: 30pt, fill: red),
-    line(stroke: 4pt+ green, length: 3cm)
+    line(stroke: 4pt + green, length: 3cm)
   )
   total-points: 100
 )
