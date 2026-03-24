@@ -1,0 +1,20 @@
+frontend:
+  - "The frontend is implemented using React and TypeScript."
+  - "The frontend is responsive and works well on different screen sizes."
+  - "The frontend has a clean and user-friendly design."
+  - "The frontend communicates with the backend using RESTful APIs."
+  - "The frontend has proper error handling and displays appropriate messages to the user."
+
+backend:
+  - "The backend is implemented using Node.js and Express."
+  - "The backend has a well-defined API that follows RESTful principles."
+  - "The backend has proper error handling and returns appropriate HTTP status codes."
+  - "The backend uses a database (e.g., MongoDB) to store data and has proper data validation."
+  - "The backend has unit tests to ensure the correctness of the code."
+
+other:
+  - "The project has a clear and organized file structure."
+  - "The code is well-documented and follows best practices for readability and maintainability."
+  - "The project uses version control (e.g., Git) and has a clear commit history."
+  - "The project has a README file that provides instructions on how to set up and run the application."
+  - "The project includes tests for both the frontend and backend to ensure the functionality of the application."

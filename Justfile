@@ -8,9 +8,14 @@ default:
 
 # generate manual
 doc:
-  typst-v14 compile docs/manual.typ docs/manual.pdf
-  typst-v14 compile docs/thumbnail.typ thumbnail.png
+  typst compile docs/manual.typ docs/manual.pdf
+  typst compile docs/thumbnail.typ thumbnail.png
   magick thumbnail.png -resize 400 thumbnail.png
+
+test case:
+    @echo "Starting test {{case}}..."
+    typst compile "tests/test-{{case}}.typ"
+    @echo "Test {{case}} passed!"
 
 pack:
   chase pack . @preview --overwrite
