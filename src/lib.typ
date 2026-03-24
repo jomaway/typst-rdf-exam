@@ -4,6 +4,6 @@
 #import "points.typ": point-sum-box, point-table
 
 // reexport ttt-utils
-#import "@preview/ttt-utils:0.1.4": assignments, components, grading
+#import "utils.typ": assignments, components, grading, rubric
 #import components: *
 #import assignments: *

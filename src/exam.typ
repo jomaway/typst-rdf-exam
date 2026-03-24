@@ -1,4 +1,4 @@
-#import "@preview/ttt-utils:0.1.4": assignments, helpers
+#import "utils.typ": assignments, helpers
 #import "cover.typ": cover-page
 #import "snippets.typ": copyright-snippet, page-counter-snippet, update-last-page-counter
 

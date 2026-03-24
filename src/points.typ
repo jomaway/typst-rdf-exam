@@ -1,4 +1,4 @@
-#import "@preview/ttt-utils:0.1.4": grading, helpers
+#import "utils.typ": grading, helpers
 
 #let get-total-points() = context grading.get_points().sum(default: 0)
 

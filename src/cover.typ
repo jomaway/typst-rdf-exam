@@ -1,4 +1,4 @@
-#import "@preview/ttt-utils:0.1.4": assignments, helpers
+#import "utils.typ": assignments, helpers
 #import "points.typ": *
 
 #let get-meta-field(name) = context {
