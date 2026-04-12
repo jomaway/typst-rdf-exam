@@ -1,5 +1,5 @@
 // import ttt-utils
-#import "@preview/ttt-utils:0.2.0": assignments, components, grading, rubric as rubric_utils, helpers
+#import "@preview/ttt-utils:0.2.1": assignments, components, grading, rubric as rubric_utils, helpers
 
 
 /// Get the default rubric levels for a given count of levels. Only 2, 3 or 4 levels are supported.
@@ -30,17 +30,21 @@
 }
 
 /// A wrapper around the rubric function from ttt-utils that adds some default behavior for the criteria and levels.
-#let rubric(
+#let eval-rubric(
   /// The criteria for the rubric, given as an array of strings.
   /// -> array
   criteria,
   /// The levelcount or levels for the rubric.
   /// -> int
   levels: 4,
+  faktor: 1,
   /// Additional arguments for the rubric function from ttt-utils.
   ..rest
 ) = {
   let levels = if type(levels) == int { get_rubric_levels(levels) } else { levels }
+  levels = levels.enumerate().map(((idx, l)) => {
+    ( label: l, value: idx * faktor )
+    })
   criteria = if type(criteria) == array { ("Bewertungskriterium", ..criteria) } else { criteria }
 
   rubric_utils.rubric(criteria, levels: levels, ..rest)
