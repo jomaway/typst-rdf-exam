@@ -84,7 +84,7 @@
               smallcaps("Name:"), context if assignments.is-solution-mode() { text(red, "Lösung") },
               smallcaps("Klasse:"), helpers.if-auto-then(class, get-meta-field("class")),
               smallcaps( "Fach:"), helpers.if-auto-then(subject, get-meta-field("subject")),
-              smallcaps("Datum:"), helpers.if-auto-then(date, get-meta-field("date"))
+              smallcaps("Datum:"), helpers.if-auto-then(date, get-meta-field("date")),
             )
           },
           [
@@ -262,7 +262,8 @@
               "Prüfungstag:", date,
               "Prüfungszeit:", [#duration Minuten],
 
-              "Erlaubte Hilfmittel:", [#if aid-resources != none {aid-resources.join(", ")} else {"Keine"} ]
+              "Gesamtpunktzahl:", get-total-points(),
+              "Erlaubte Hilfmittel:", [#if aid-resources != none {aid-resources.join(", ")} else {"Keine"} ],
             )
 
             v(1cm)
