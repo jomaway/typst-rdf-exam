@@ -36,6 +36,9 @@
   /// -> int | auto
   total-points: auto,
 
+  /// The rendering style for questions. Can be either "classic" or "block". The default is "block".
+  style: "block",
+
   /// The exam content body.
   /// -> content
   body,
@@ -64,6 +67,7 @@
     assignments.set-solution-mode(helpers.bool-input("solution"))
   }
 
+  set set-render-style(style)
 
   // metadata (label needs content so we wrap inside a block)
   [
