@@ -13,7 +13,7 @@ This is a [typst](https://typst.app/home) template for creating consistent looki
 To create an exam you need to `import` the package and init it with the `show` rule.
 
 ```typ
-#import "@preview/rdf-exam:0.2.0": *
+#import "@preview/rdf-exam:<VERSION>": *
 
 #show: exam.with(
   title: "1. Exam",
@@ -26,7 +26,7 @@ There are a few arguments which you can set for an exam.
 If you don't need a full cover page you can disable it. Instead you can use the `header-block()` function for a small header. It uses the metadata which you set on the exam by default.
 
 ```typ
-#import "@preview/rdf-exam:0.2.0": *
+#import "@preview/rdf-exam:<VERSION>": *
 
 #show: exam.with(
   title: "1. Exam",
@@ -56,7 +56,7 @@ If you don't need a full cover page you can disable it. Instead you can use the 
 You can replace the RDF logo with your own logo by disabling the default cover and adding a `cover-page` where you set the logo. Same works with the `header-block` If you don't plan to use `ttt-utils` assignments and questions you can still use the cover by adding a custom value for the total points of your exam.
 
 ```typ
-#import "@preview/rdf-exam:0.2.0": *
+#import "@preview/rdf-exam:<VERSION>": *
 
 #show: exam.with(
   title: "1. Exam",,
