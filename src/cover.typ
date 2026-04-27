@@ -276,7 +276,7 @@
                 inset: (x: 2pt, y: 5pt),
                 row-gutter: 1em,
                 column-gutter: 5pt,
-                smallcaps("Name"), "",smallcaps("Vorname"), "", smallcaps("Platznummer"), ""
+                smallcaps("Name:"), "",smallcaps("Vorname:"), "", smallcaps("Platznummer:"), ""
               )
 
             v(2cm)
