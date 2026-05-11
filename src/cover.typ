@@ -14,27 +14,21 @@
   /// The logo to display on the cover page.
   /// -> content
   logo: box(height: 2cm, image("assets/rdf.svg")),
-
   /// The main title of the exam.
   /// -> string | auto
   title: auto,
-
   /// Optional subtitle for the exam.
   /// -> string | auto
   subtitle: auto,
-
   /// The class name or code.
   /// -> string | auto
   class: auto,
-
   /// The subject of the exam.
   /// -> string | auto
   subject: auto,
-
   /// The date of the exam.
   /// -> datetime | string | auto
   date: auto,
-
   /// The total amount of achivable points
   /// -> int | auto
   total-points: auto,
@@ -83,7 +77,7 @@
               column-gutter: 5pt,
               smallcaps("Name:"), context if assignments.is-solution-mode() { text(red, "Lösung") },
               smallcaps("Klasse:"), helpers.if-auto-then(class, get-meta-field("class")),
-              smallcaps( "Fach:"), helpers.if-auto-then(subject, get-meta-field("subject")),
+              smallcaps("Fach:"), helpers.if-auto-then(subject, get-meta-field("subject")),
               smallcaps("Datum:"), helpers.if-auto-then(date, get-meta-field("date")),
             )
           },
@@ -110,27 +104,21 @@
   /// The logo to display on the cover page.
   /// -> content
   logo: box(height: 2cm, image("assets/rdf.svg")),
-
   /// The main title of the exam.
   /// -> string | auto
   title: auto,
-
   /// Optional subtitle for the exam.
   /// -> string | auto
   subtitle: auto,
-
   /// The class name or code.
   /// -> string | auto
   class: auto,
-
   /// The subject of the exam.
   /// -> string | auto
   subject: auto,
-
   /// The date of the exam.
   /// -> datetime | string | auto
   date: auto,
-
   /// The total amount of achivable points
   /// -> int | auto
   total-points: auto,
@@ -196,27 +184,21 @@
   /// The department
   /// -> string
   department: "Elektrotechnik",
-
   /// The subject of the exam.
   /// -> string | auto
   subject: auto,
-
   /// The date of the exam.
   /// -> datetime | string | auto
   date: auto,
-
   /// The duration of the exam in minutes.
   /// -> int
   duration: 120,
-
   /// Whether the exam takes place in the summer semester. This will be used to determine the correct wording for the date in the header.
   /// -> bool
   summer-semester: false,
-
   /// A list of allowed resources during the exam. This can be anything from "Taschenrechner" to "Formelsammlung" or "Hilfsmittel XYZ". It will be displayed in the footer.
   /// -> array | none
   aid-resources: none,
-
 ) = {
   page(
     header: none,
@@ -236,61 +218,63 @@
       date = date.display("[day].[month].[year]")
 
       grid(
-          columns: 1fr,
-          rows: (auto,1fr),
-          align: horizon,
-          {
-             place(top + right ,box(height: 2cm, image("assets/rdf.svg")))
+        columns: 1fr,
+        rows: (auto, 1fr),
+        align: horizon,
+        {
+          place(top + right, box(height: 2cm, image("assets/rdf.svg")))
 
-            par(leading: 1.8em)[
-              #text(28pt)[STADT NÜRNBERG] \
-              #text(24pt)[Rudolf-Diesel-Fachschule]
-            ]
-            v(1cm)
-            text(16pt, weight: "bold")[Fachrichtung #department]
-            v(1cm)
+          par(leading: 1.8em)[
+            #text(28pt)[STADT NÜRNBERG] \
+            #text(24pt)[Rudolf-Diesel-Fachschule]
+          ]
+          v(1cm)
+          text(16pt, weight: "bold")[Fachrichtung #department]
+          v(1cm)
 
-            let semester = if summer-semester { "Sommerhalbjahr" } else { "Jahr" }
-            align(center,text(22pt)[Staatliche Abschluschlussprüfung \ im #semester #year])
+          let semester = if summer-semester { "Sommerhalbjahr" } else { "Jahr" }
+          align(center, text(22pt)[Staatliche Abschlussprüfung \ im #semester #year])
 
-            set text(14pt)
-            grid(
-              columns: 2,
-              column-gutter: 2cm,
-              row-gutter: 1em,
-              "Prüfungsfach:", subject,
-              "Prüfungstag:", date,
-              "Prüfungszeit:", [#duration Minuten],
-
-              "Gesamtpunktzahl:", get-total-points(),
-              "Erlaubte Hilfmittel:", [#if aid-resources != none {aid-resources.join(", ")} else {"Keine"} ],
-            )
-
-            v(1cm)
-
-            text(weight: "bold")[Prüfling:]
-            grid(
-                columns: (auto, 6cm,),
-                align: (end + horizon, start + horizon),
-                stroke: (x,y) => if (1 == x ) { (bottom: 0.5pt)},
-                inset: (x: 2pt, y: 5pt),
-                row-gutter: 1em,
-                column-gutter: 5pt,
-                smallcaps("Name:"), "",smallcaps("Vorname:"), "", smallcaps("Platznummer:"), ""
-              )
-
-            v(2cm)
-          },
+          set text(14pt)
           grid(
-              columns: (1fr, auto),
-              row-gutter: 1cm,
-              {
-              block[
+            columns: 2,
+            column-gutter: 2cm,
+            row-gutter: 1em,
+            "Prüfungsfach:", subject,
+            "Prüfungstag:", date,
+            "Prüfungszeit:", [#duration Minuten],
+
+            "Gesamtpunktzahl:", get-total-points(),
+            "Erlaubte Hilfmittel:", [#if aid-resources != none { aid-resources.join(", ") } else { "Keine" } ],
+          )
+
+          v(1cm)
+
+          text(weight: "bold")[Prüfling:]
+          grid(
+            columns: (auto, 6cm),
+            align: (end + horizon, start + horizon),
+            stroke: (x, y) => if (1 == x) { (bottom: 0.5pt) },
+            inset: (x: 2pt, y: 5pt),
+            row-gutter: 1em,
+            column-gutter: 5pt,
+            smallcaps("Name:"), "",
+            smallcaps("Vorname:"), "",
+            smallcaps("Platznummer:"), "",
+          )
+
+          v(2cm)
+        },
+        grid(
+          columns: (1fr, auto),
+          row-gutter: 1cm,
+          {
+            block[
               *Erstprüfer:*
               #grid(
                 columns: (auto, 6cm),
                 align: (end + horizon, start + horizon),
-                stroke: (x,y) => if (1 == x) { (bottom: 0.5pt)},
+                stroke: (x, y) => if (1 == x) { (bottom: 0.5pt) },
                 inset: (x: 2pt, y: 5pt),
                 row-gutter: 1em,
                 column-gutter: 5pt,
@@ -302,7 +286,7 @@
               #grid(
                 columns: (auto, 6cm),
                 align: (end + horizon, start + horizon),
-                stroke: (x,y) => if (1 == x) { (bottom: 0.5pt)},
+                stroke: (x, y) => if (1 == x) { (bottom: 0.5pt) },
                 inset: (x: 2pt, y: 5pt),
                 row-gutter: 1em,
                 column-gutter: 5pt,
@@ -310,13 +294,15 @@
                 smallcaps("Handzeichen:"), "",
               )
             ]
-            },
-            [
-              *Prüfungsnote:*
-              #rect(width: 3cm, height: 3cm)[#context if assignments.is-solution-mode() { align(center + horizon,text(32pt, weight: 700, red, "X")) }]
-            ]
-          )
+          },
+          [
+            *Prüfungsnote:*
+            #rect(width: 3cm, height: 3cm)[#context if assignments.is-solution-mode() {
+              align(center + horizon, text(32pt, weight: 700, red, "X"))
+            }]
+          ],
         )
+      )
     },
   )
   counter(page).update(1)
