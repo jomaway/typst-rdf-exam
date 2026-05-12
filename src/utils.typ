@@ -1,5 +1,5 @@
 // import ttt-utils
-#import "@preview/ttt-utils:0.3.0": assignments, components, grading, rubric as rubric_utils, helpers
+#import "@preview/ttt-utils:0.3.0": assignments, components, layout, grading, rubric as rubric_utils, helpers
 
 
 /// Get the default rubric levels for a given count of levels. Only 2, 3 or 4 levels are supported.

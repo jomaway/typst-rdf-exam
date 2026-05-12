@@ -1,4 +1,4 @@
-#import "utils.typ": assignments, helpers
+#import "utils.typ": assignments, helpers, layout.set-render-style
 #import "cover.typ": cover-page
 #import "snippets.typ": copyright-snippet, page-counter-snippet, update-last-page-counter
 
@@ -67,11 +67,11 @@
     assignments.set-solution-mode(helpers.bool-input("solution"))
   }
 
-  set set-render-style(style)
+  set-render-style(style)
 
   // metadata (label needs content so we wrap inside a block)
   [
-    #metadata( (
+    #metadata((
       title: title,
       subtitle: subtitle,
       class: class,
